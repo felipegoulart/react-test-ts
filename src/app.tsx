@@ -1,16 +1,17 @@
-import { Panel } from "./components/panel";
-import { formatTime } from "./utils/time";
-import { CardList } from "./components/cardList";
 import { useEffect, useRef, useState } from "react";
-import { shuffleArray } from "./utils/shuffle";
-import { PetCardProps, PetCardResponse } from "./types/petCard";
-import { Modal } from "./components/modal";
 import { Button } from "./components/button";
+import { CardList } from "./components/cardList";
+import { Header } from "./components/header";
+import { Modal } from "./components/modal";
+import { PetCardProps, PetCardResponse } from "./types/petCard";
+import { formatTime } from "./utils/time";
+import { shuffleArray } from "./utils/shuffle";
 import {
   getFromLocalStorage,
   removeFromLocalStorage,
   saveToLocalStorage,
 } from "./utils/store";
+import { EmptyList } from "./components/emptyList";
 
 type GameType = {
   id: number;
@@ -183,51 +184,16 @@ export function App() {
   return (
     <>
       <div className="w-full min-h-screen flex flex-col justify-start gap-10 pt-10 bg-zinc-50">
-        <header className="w-full flex flex-col items-center justify-center h-fit gap-10">
-          <div className="flex items-end">
-            <h1 className="text-h1 text-primary">Petland</h1>
-            <span className="text-zinc-400 font-normal text-5xl">
-              Front-end
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center justify-center gap-10">
-            <div className="w-full flex items-center justify-center gap-4">
-              <Panel
-                title="Tentativas"
-                value={attempts.toString().padStart(2, "0")}
-              />
-              <Panel
-                title="Pares feitos"
-                value={matchedCards.toString().padStart(2, "0")}
-              />
-              <Panel
-                title="Pares restantes"
-                value={remainingCards.toString().padStart(2, "0")}
-              />
-              <Panel title="Tempo decorrido" value={formatTime(seconds)} />
-            </div>
-
-            <div className="w-full flex items-center justify-center gap-4">
-              <Button
-                variant="primary"
-                onClick={() => setShowStartGameModal(true)}
-              >
-                Começar
-              </Button>
-              <Button
-                variant="secondary"
-                disabled={!isGameStarted}
-                onClick={() => showRestartModal()}
-              >
-                Reiniciar
-              </Button>
-              <Button variant="secondary" onClick={showHistory}>
-                Histórico
-              </Button>
-            </div>
-          </div>
-        </header>
+        <Header
+          attempts={attempts}
+          matchedCards={matchedCards}
+          remainingCards={remainingCards}
+          seconds={seconds}
+          isGameStarted={isGameStarted}
+          onStartButtonClick={() => setShowStartGameModal(true)}
+          onRestartButtonClick={showRestartModal}
+          onHistoryButtonClick={showHistory}
+        />
 
         {petCards.length ? (
           <CardList
@@ -236,17 +202,7 @@ export function App() {
             updateAttempts={() => setAttempts((prev) => prev + 1)}
           ></CardList>
         ) : (
-          <div className="w-full flex flex-col items-center justify-center gap-10">
-            <h2 className="text-h2 text-primary">
-              Clique em Começar para jogar
-            </h2>
-
-            <img
-              src="img/stickers/bruce-03.png"
-              alt="Logo"
-              className="w-40 object-contain select-none"
-            />
-          </div>
+          <EmptyList />
         )}
       </div>
 
