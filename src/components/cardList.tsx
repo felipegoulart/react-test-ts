@@ -72,18 +72,20 @@ export function CardList({
   }, [cards, flippedCards, updateAttempts, setPetCards]);
 
   return (
-    <div className="w-full flex items-start justify-center flex-1 px-4 pb-8">
-      <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-4 lg:gap-6">
+    <div className="w-full flex justify-center px-4 pb-8">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-4 max-w-[116rem] w-full">
         {cards.map((petCard, key) => (
-          <Card
-            id={petCard.id}
-            sticker={petCard.sticker}
-            pairId={petCard.pairId}
-            onClick={handleCardClick}
-            key={key}
-            flipped={petCard.flipped}
-            isMatched={petCard.isMatched}
-          />
+          <div className="flex justify-center w-full">
+            <Card
+              id={petCard.id}
+              sticker={petCard.sticker}
+              pairId={petCard.pairId}
+              onClick={handleCardClick}
+              key={key}
+              flipped={petCard.flipped}
+              isMatched={petCard.isMatched}
+            />
+          </div>
         ))}
       </div>
     </div>
