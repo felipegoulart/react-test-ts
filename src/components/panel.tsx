@@ -5,7 +5,7 @@ type PanelProps = {
 
 export function Panel({ title, value }: PanelProps) {
   return (
-    <div className="flex flex-col items-center justify-center w-full hover:cursor-default select-none">
+    <div className="flex flex-col w-full md:max-w-64  items-center justify-center hover:cursor-default select-none">
       <h2 className="text-body font-bold text-slate-500 text-nowrap px-2">
         {title}
       </h2>

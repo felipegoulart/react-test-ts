@@ -73,7 +73,7 @@ export function CardList({
 
   return (
     <div className="w-full flex items-start justify-center flex-1 px-4 pb-8">
-      <div className="w-[900px] min-w-[900px] flex flex-wrap justify-center gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-4 lg:gap-6">
         {cards.map((petCard, key) => (
           <Card
             id={petCard.id}

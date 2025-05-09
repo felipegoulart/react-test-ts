@@ -24,14 +24,14 @@ export function Header({
   onStartButtonClick,
 }: HeaderProps) {
   return (
-    <header className="w-full flex flex-col items-center justify-center h-fit gap-10">
-      <div className="flex items-end">
+    <header className="w-full flex flex-col items-center justify-center h-fit gap-10 px-8">
+      <div className="flex flex-wrap justify-center items-end">
         <h1 className="text-h1 text-primary">Petland</h1>
         <span className="text-zinc-400 font-normal text-5xl">Front-end</span>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-10">
-        <div className="w-full flex items-center justify-center gap-4">
+        <div className="w-full flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 md:gap-4">
           <Panel
             title="Tentativas"
             value={attempts.toString().padStart(2, "0")}
@@ -47,7 +47,7 @@ export function Header({
           <Panel title="Tempo decorrido" value={formatTime(seconds)} />
         </div>
 
-        <div className="w-full flex items-center justify-center gap-4">
+        <div className="w-full flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 md:gap-4">
           <Button variant="primary" onClick={onStartButtonClick}>
             Começar
           </Button>

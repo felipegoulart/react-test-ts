@@ -38,7 +38,7 @@ export function Card({
     <div
       onClick={() => onClick({ id, flipped, isMatched, pairId })}
       className={cn(
-        "w-[200px] h-[200px] rounded-lg overflow-clip transition duration-300 ease-in-out transform shadow-md",
+        "w-[120px] sm:w-[140px] md:w-[160px] h-[120px] sm:h-[140px] md:h-[160px] rounded-lg overflow-clip transition duration-300 ease-in-out transform shadow-md",
         !isMatched &&
           "hover:shadow-xl hover:scale-105 hover:rotate-3 hover:z-10 cursor-pointer",
         flipped ? "rotate-y-180" : "rotate-y-0"
@@ -56,7 +56,7 @@ export function Card({
           <img
             src={imagePath}
             alt="Card"
-            className="w-20 object-contain drop-shadow-2xl select-none"
+            className="w-16 md:w-20 object-contain drop-shadow-2xl select-none"
           />
         </div>
       ) : (
@@ -64,7 +64,7 @@ export function Card({
           <img
             src="img/logo.png"
             alt="Card"
-            className="w-20 object-contain select-none"
+            className="w-16 md:w-20 object-contain select-none"
           />
         </div>
       )}
