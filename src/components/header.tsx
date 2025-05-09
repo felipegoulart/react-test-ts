@@ -48,7 +48,11 @@ export function Header({
         </div>
 
         <div className="w-full flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 md:gap-4">
-          <Button variant="primary" onClick={onStartButtonClick}>
+          <Button
+            variant="primary"
+            onClick={onStartButtonClick}
+            disabled={isGameStarted}
+          >
             Começar
           </Button>
           <Button

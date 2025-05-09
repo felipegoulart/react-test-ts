@@ -176,6 +176,7 @@ export function App() {
 
         if (!isGameFinished) alert("Você ganhou!");
         removeFromLocalStorage("currentGame");
+        setIsGameStarted(false);
         setIsGameFinished(true);
       }
     }
