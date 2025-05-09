@@ -3,7 +3,8 @@ import { cn } from "../utils/cn";
 const buttonVariants = {
   primary: "bg-primary text-white hover:bg-orange-700",
   secondary: "border-primary text-primary hover:bg-slate-50",
-  disabled: "bg-gray-300 text-gray-500 cursor-not-allowed",
+  disabled:
+    "bg-gray-300 text-gray-500 cursor-not-allowed hover:scale-100 hover:shadow-md",
 };
 
 export function Button({
