@@ -6,3 +6,19 @@
     --color-primary: #e95003;
     --font-roboto: "Roboto", sans-serif;
 }
+
+.text-h1 {
+    @apply text-6xl font-bold;
+}
+
+.text-h2 {
+    @apply text-2xl font-semibold;
+}
+
+.text-body-highlight {
+    @apply text-3xl font-bold tracking-wide;
+}
+
+.text-body {
+    @apply text-xl;
+}
